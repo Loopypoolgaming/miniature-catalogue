@@ -1,31 +1,863 @@
-[
-  {
-    "name": "Legion of the Damned",
-    "creator": "Rescale Miniatures",
-    "theme": "Army Pack",
-    "downloaded": true,
-    "image": ""
-  },
-  {
-    "name": "Horned Blade",
-    "creator": "Rescale Miniatures",
-    "theme": "Character / Weapon",
-    "downloaded": true,
-    "image": ""
-  },
-  {
-    "name": "Hell Forged Legion Proud",
-    "creator": "Rescale Miniatures",
-    "theme": "Sample Pack",
-    "downloaded": true,
-    "image": ""
-  },
-  {
-    "name": "Iron Hell Rider Cry",
-    "creator": "Rescale Miniatures",
-    "theme": "Mount / Rider",
-    "downloaded": true,
-    "image": ""
-  }
-  // ... continue for all 1088 entries
-]
+.object-card {
+    background-color: #d3d3d3;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.25);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    user-select: none;
+    width: 100%
+}
+
+@media (max-width: 530px) {
+    .object-card {
+        margin:1px!important
+    }
+}
+
+.object-card .logo-tab {
+    background-color: #fff;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.25);
+    height: 5px;
+    position: relative;
+    width: 100%;
+    z-index: 2
+}
+
+.object-card .logo-tab .logo-flex {
+    display: flex;
+    justify-content: center;
+    min-height: 17px;
+    position: absolute;
+    top: 100%;
+    width: 100%
+}
+
+.object-card .logo-tab .logo-flex div {
+    max-width: 138px;
+    padding-top: .1231884058%;
+    position: relative;
+    width: 100%
+}
+
+.object-card .logo-tab img {
+    bottom: 0;
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,.25));
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.object-card .logo-tab>.shadow-cover {
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.object-card .pdf-stl {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    padding: 4px 6px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    z-index: 2
+}
+
+.object-card .pdf-stl .gap {
+    display: inline-block;
+    width: 10px
+}
+
+.object-card a,.object-card a:after,.object-card a:hover {
+    color: inherit;
+    text-decoration: none
+}
+
+.object-card .image-tab {
+    background-color: hsla(0,0%,4%,.7);
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    bottom: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 7px;
+    position: absolute;
+    right: 0;
+    z-index: 2
+}
+
+.object-card .background-blur-div {
+    bottom: 0;
+    filter: brightness(1.5) blur(10px);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0
+}
+
+.object-card .collection-object-img {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    position: relative
+}
+
+.object-card .collection-object-img .background-blur-div img {
+    height: 50%;
+    width: 50%
+}
+
+.object-card .collection-object-img a {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    height: 100%
+}
+
+.object-card .collection-object-img a img {
+    max-height: 100%;
+    max-width: 100%;
+    z-index: 1
+}
+
+.object-card .collection-object-img a img:first-child {
+    place-self: end end
+}
+
+.object-card .collection-object-img a img:nth-child(2) {
+    place-self: end start
+}
+
+.object-card .collection-object-img a img:nth-child(3) {
+    place-self: start end
+}
+
+.object-card .collection-object-img a img:nth-child(4) {
+    place-self: start start
+}
+
+.object-card .collection-object-img-2 {
+    align-content: center;
+    background-color: #fff;
+    flex-grow: 1;
+    min-height: 0;
+    overflow: hidden
+}
+
+.object-card .collection-object-img-2 .background-blur-div {
+    display: none
+}
+
+.object-card .collection-object-img-2 a {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 1px;
+    width: 100%
+}
+
+.object-card .collection-object-img-2 a img {
+    border-radius: 2px;
+    height: 50%;
+    margin: 1px;
+    object-fit: contain;
+    width: 100%;
+    z-index: 1
+}
+
+.object-card .collection-object-img-3 {
+    align-content: center;
+    background-color: #fff;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    position: relative
+}
+
+.object-card .collection-object-img-3 .background-blur-div {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    height: 100%;
+    width: 100%
+}
+
+.object-card .collection-object-img-3 .background-blur-div img {
+    height: 100%;
+    object-fit: fill;
+    width: 100%
+}
+
+.object-card .collection-object-img-3 .background-blur-div img:first-child {
+    grid-column-end: 3;
+    grid-column-start: 1
+}
+
+.object-card .collection-object-img-3 a {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    height: 100%;
+    width: 100%
+}
+
+.object-card .collection-object-img-3 a img:first-child {
+    grid-column-end: 3;
+    grid-column-start: 1;
+    margin: 1px 10px;
+    max-height: 100%;
+    max-width: 50%;
+    place-self: end center
+}
+
+.object-card .collection-object-img-3 a img:nth-child(2) {
+    max-height: 100%;
+    max-width: 100%;
+    place-self: start end
+}
+
+.object-card .collection-object-img-3 a img:nth-child(3) {
+    max-height: 100%;
+    max-width: 100%;
+    place-self: start start
+}
+
+.object-card .collection-object-img-3 a img {
+    border-radius: 2px;
+    margin: 1px;
+    z-index: 1
+}
+
+.object-card .object-img {
+    flex-grow: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    position: relative
+}
+
+.object-card .object-img .background-blur-div img {
+    height: 100%;
+    object-fit: fill;
+    width: 100%
+}
+
+.object-card .object-img a {
+    bottom: 0;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1
+}
+
+.object-card .object-img a img {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    z-index: 1
+}
+
+.object-card .object-img a img.mmf-plus-strip-img {
+    bottom: 0;
+    height: unset;
+    position: absolute;
+    z-index: 1000
+}
+
+.object-card .grey-div {
+    background: #d3d3d3;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.object-card .clip {
+    background: none!important
+}
+
+.object-card .caption-shadow {
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.25))
+}
+
+.object-card .caption-loader {
+    height: 250px
+}
+
+.object-card .caption-bg {
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative
+}
+
+.object-card .caption-bg .background-with-curve {
+    position: absolute;
+    right: 0;
+    width: 230px
+}
+
+.object-card .caption-bg .resize-background-div {
+    background-color: #fff;
+    bottom: 5px;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    right: 230px
+}
+
+.object-card .caption-bg .tag {
+    bottom: 2px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    right: 7px
+}
+
+.object-card .caption-bg .tag .strikeThroughPrice {
+    color: red;
+    font-size: 12px;
+    text-decoration: line-through
+}
+
+.object-card .path {
+    fill: #fff;
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    stroke: none;
+    stroke-width: .72165668;
+    stroke-linecap: square;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+    opacity: 1
+}
+
+.object-card .caption {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    position: relative
+}
+
+.object-card .caption .collection-caption-text {
+    align-items: center;
+    column-gap: 8px;
+    display: flex;
+    flex-shrink: 1;
+    min-width: 0;
+    padding-left: 5px
+}
+
+.object-card .caption .collection-caption-text .caption-object-icon {
+    background: #fff;
+    border-radius: 10px;
+    height: 40px;
+    padding: 8px;
+    width: 40px
+}
+
+.object-card .caption .caption-text {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    margin-bottom: 5px;
+    min-width: 0;
+    padding-left: 5px;
+    padding-top: 9px
+}
+
+.object-card .caption .caption-text a {
+    max-height: 20px;
+    max-width: min-content
+}
+
+.object-card .caption .caption-text p {
+    display: inline;
+    float: left;
+    line-height: 16px;
+    margin-bottom: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%
+}
+
+.object-card .caption .caption-text .object-name {
+    margin-right: 7px
+}
+
+.object-card .caption .caption-text .object-name p {
+    color: #333;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 0;
+    width: 100%
+}
+
+.object-card .caption .caption-text .designername {
+    margin-right: 65px
+}
+
+.object-card .caption .caption-text .designername p {
+    color: #777;
+    font-size: 11px;
+    margin-top: 0
+}
+
+.object-card .caption .avatar-a {
+    flex-shrink: 0
+}
+
+.object-card .caption .avatar-a .avatar {
+    border: .5px solid #d3d3d3;
+    border-radius: 50%;
+    font-size: 5px;
+    height: 36px;
+    margin-left: 7px;
+    margin-top: 9px;
+    white-space: normal;
+    width: 36px
+}
+
+.object-card .object-card-options {
+    background: hsla(0,0%,100%,.7);
+    bottom: 0;
+    height: 81%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2
+}
+
+.object-card .object-card-options .object-card-options-box {
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 230px
+}
+
+.object-card .object-card-options .object-card-options-box .MuiIconButton-root.Mui-disabled {
+    background: gray
+}
+
+.object-card .object-card-options .object-card-options-btn {
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    height: 50px;
+    margin: 20px;
+    position: relative;
+    width: 50px
+}
+
+.object-card .object-card-options-user {
+    height: 85%!important
+}
+
+.object-card .object-status {
+    box-sizing: border-box;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 27px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 140%;
+    margin: auto;
+    overflow: hidden;
+    padding: 6px;
+    position: absolute;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    top: 0;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 10
+}
+
+.featured .tag {
+    color: #00c4a6!important
+}
+
+.featured .caption-bg .caption-text {
+    background: #00c4a6!important
+}
+
+.featured .caption-bg .caption-text p {
+    color: #fff!important
+}
+
+.featured .star-container {
+    background: #00c4a6;
+    border-radius: 50%;
+    height: 54px;
+    padding-left: 7px;
+    padding-top: 22px;
+    position: absolute;
+    right: -24px;
+    top: -24px;
+    width: 54px;
+    z-index: 2
+}
+
+.modalBackground {
+    background-color: #fff;
+    border-radius: 5px;
+    font-family: Lato,Open Sans,sans-serif;
+    margin: auto;
+    max-height: 100vh;
+    max-width: 100%;
+    overflow: auto;
+    padding: 20px;
+    width: max-content
+}
+
+@media only screen and (max-width: 40em) {
+    #collection-modal.reveal-modal {
+        width:100%
+    }
+}
+
+.AddToCollection {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 40px)
+}
+
+.AddToCollection .titleAndClose {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+
+.AddToCollection .titleAndClose .modalTitle {
+    font-family: inherit;
+    font-size: 18px;
+    margin: 0 20px 20px 0
+}
+
+.AddToCollection .secondaryButton {
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 1em;
+    color: gray;
+    font-size: 14px;
+    font-weight: inherit;
+    margin: 0 0 20px;
+    padding: 0 .6em
+}
+
+.AddToCollection .createNewCollectionButton {
+    background-color: #1da1f2;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2);
+    color: #fff;
+    font-size: 14px;
+    font-weight: inherit;
+    margin: 0;
+    padding: 5px 10px
+}
+
+.AddToCollection .flexRowAlignMiddle {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start
+}
+
+.AddToCollection .totalSizeAndNoOfFiles {
+    margin: 0 0 0 1em
+}
+
+.AddToCollection .totalSizeAndNoOfFiles .totalSize {
+    color: gray
+}
+
+.separator {
+    width: 100%
+}
+
+p.container-pfds {
+    margin: 20px 0
+}
+
+.collectionList {
+    min-height: 0;
+    overflow: auto
+}
+
+.nameActionListItemRow {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px
+}
+
+.nameActionListItemRow .checkbox {
+    margin: 0
+}
+
+.nameActionListItemRow p {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 18px;
+    margin: 0;
+    vertical-align: baseline
+}
+
+.nameActionListItemRow p .main {
+    font-family: inherit
+}
+
+.nameActionListItemRow p .sub {
+    color: gray;
+    font-family: inherit;
+    margin-right: 15px
+}
+
+.nameActionListItemRow .actionButton {
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 1em;
+    color: gray;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0 .6em
+}
+
+.nameActionListItemRow .actionButton.disabled {
+    background-color: unset!important;
+    border: unset;
+    color: gray
+}
+
+.collectionList {
+    flex-shrink: 1
+}
+
+.collection-card-master {
+    background-color: #ebebeb;
+    border-radius: 5px 5px 0 0;
+    -webkit-box-shadow: 2px 2px 10px 3px rgba(0,0,0,.31);
+    -moz-box-shadow: 2px 2px 10px 3px rgba(0,0,0,.31);
+    box-shadow: 2px 2px 10px 3px rgba(0,0,0,.31);
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+    margin: 10px;
+    width: 192px
+}
+
+.collection-card-top {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    overflow: hidden;
+    padding: 10px
+}
+
+.collection-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    height: 36px;
+    overflow: hidden;
+    padding: 0 10px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 192px
+}
+
+.collection-card-count {
+    font-size: 16px
+}
+
+.collection-card-image {
+    height: 100%
+}
+
+.collection-card-bottom {
+    display: flex
+}
+
+.collection-card-more-images {
+    height: 100%
+}
+
+.collection-custom-image {
+    padding: 1px;
+    width: 192px
+}
+
+.collection-custom-image-mini {
+    padding: 1px;
+    width: 64px
+}
+
+#main {
+    background-color: #eee
+}
+
+.user__library,.user__library h3 {
+    font-family: Lato,sans-serif
+}
+
+.user__library-container {
+    align-items: stretch!important
+}
+
+.user__libary-cards-container {
+    background: #fff
+}
+
+.user__library-menu-container {
+    align-items: start!important
+}
+
+.user__library-following {
+    padding-top: 30px
+}
+
+.user__libary-cards-container,.user__library-cards {
+    align-items: start!important
+}
+
+.left__menu-library {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    flex-direction: column;
+    font-size: 14px;
+    justify-content: flex-start;
+    min-width: auto;
+    padding: 0!important
+}
+
+.left__menu-subheader {
+    background-color: #f3f3f3!important;
+    color: #595754!important;
+    font-size: 18px!important;
+    font-weight: 700!important;
+    padding-left: 10px!important;
+    padding-right: 10px!important
+}
+
+.left__menu-item {
+    color: grey!important;
+    font-size: 14px!important
+}
+
+.left__menu-item:not(:last-child) {
+    border-bottom: 1px solid #eee!important
+}
+
+.left__menu-active {
+    border-left: 4px solid #3fbc9c!important
+}
+
+.left__menu-lib-desktop {
+    margin-right: 10px!important
+}
+
+.menu-mobile-lib {
+    text-transform: capitalize
+}
+
+@media (min-width: 599px) {
+    .left__menu-lib-mobile {
+        display:none!important
+    }
+}
+
+@media (max-width: 599px) {
+    .left__menu-lib-desktop {
+        display:none!important
+    }
+
+    .left__menu-lib-mobile {
+        margin-bottom: 20px!important
+    }
+}
+
+@media (max-width: 1024px) {
+    .user__library-container {
+        padding:15px
+    }
+}
+
+@media (min-width: 1025px) {
+    .user__library-container {
+        padding:20px 60px
+    }
+}
+
+@media (min-width: 1341px) {
+    .left__menu-library {
+        min-width:200px
+    }
+}
+
+.inherit-height {
+    height: 100%
+}
+
+.campaigns__sidebar {
+    background: #fff;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.25);
+    padding: 14px
+}
+
+.campaigns__sidebar h4 {
+    color: #545454!important;
+    font-weight: 700!important;
+    margin-top: 0
+}
+
+.pinned-collection-list {
+    display: flex;
+    flex-wrap: wrap
+}
+
+
+
