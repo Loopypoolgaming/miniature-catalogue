@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyMiniFactory Catalogue</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    img { max-width: 100px; height: auto; }
+    select, input { margin-right: 10px; padding: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>🧙‍♂️ MyMiniFactory Catalogue Viewer</h1>
+
+  <label for="search">Search:</label>
+  <input type="text" id="search" placeholder="Type model name...">
+
+  <label for="creator">Creator:</label>
+  <select id="creator">
+    <option value="">All</option>
+    <option value="Rescale Miniatures">Rescale Miniatures</option>
+    <option value="Epic-Miniatures">Epic-Miniatures</option>
+  </select>
+
+  <label for="theme">Theme:</label>
+  <select id="theme">
+    <option value="">All</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Army Pack">Army Pack</option>
+    <option value="Beast">Beast</option>
+    <option value="Pose Variant">Pose Variant</option>
+    <option value="Character / Weapon">Character / Weapon</option>
+  </select>
+
+  <table id="catalogue">
+    <thead>
+      <tr>
+        <th>Model Name</th>
+        <th>Creator</th>
+        <th>Theme</th>
+        <th>Downloaded</th>
+        <th>Preview</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function loadModels() {
+      const response = await fetch('models.json');
+      const models = await response.json();
+
+      const searchInput = document.getElementById("search");
+      const creatorFilter = document.getElementById("creator");
+      const themeFilter = document.getElementById("theme");
+      const tableBody = document.querySelector("#catalogue tbody");
+
+      function renderTable() {
+        const search = searchInput.value.toLowerCase();
+        const creator = creatorFilter.value;
+        const theme = themeFilter.value;
+
+        const filtered = models.filter(model =>
+          model.name.toLowerCase().includes(search) &&
+          (creator === "" || model.creator === creator) &&
+          (theme === "" || model.theme === theme)
+        );
+
+        tableBody.innerHTML = filtered.map(model => `
+          <tr>
+            <td>${model.name}</td>
+            <td>${model.creator}</td>
+            <td>${model.theme}</td>
+            <td>${model.downloaded ? "✅" : "❌"}</td>
+            <td><img src="${model.image}" alt="${model.name}"></td>
+          </tr>
+        `).join("");
+      }
+
+      searchInput.addEventListener("input", renderTable);
+      creatorFilter.addEventListener("change", renderTable);
+      themeFilter.addEventListener("change", renderTable);
+
+      renderTable();
+    }
+
+    loadModels();
+  </script>
+
+</body>
+</html>
